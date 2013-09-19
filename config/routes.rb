@@ -1,4 +1,6 @@
 IndiegroveAwesome::Application.routes.draw do
+  resources :photos
+
   devise_for :users
   get "pages/home"
   get "pages/instructions"
