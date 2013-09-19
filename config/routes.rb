@@ -1,12 +1,14 @@
 IndiegroveAwesome::Application.routes.draw do
-  resources :photos
 
+  resources :photos
   devise_for :users
-  get "pages/home"
-  get "pages/instructions"
-  get "pages/about"
+
+  get 'users' => 'users#index'
 
   root 'pages#home'
+  get 'about' => 'pages#about'
+  get 'instructions' => 'pages#instructions'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

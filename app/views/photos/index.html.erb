@@ -1,16 +1,15 @@
 <h1>Listing photos</h1>
 
-
-    <% @photos.each do |photo| %>
-    <div class="frame">
-      <%= image_tag photo.attachment(:medium), class: "img-thumbnail" %>
-        <p><%= photo.caption %></p>
-        <small><%= photo.user.name %></small>
-        <%= link_to 'Show', photo %>
-        <%= link_to 'Edit', edit_photo_path(photo) %>
-        <%= link_to 'Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' } %>
-      </div>
-    <% end %>
+<% @photos.each do |photo| %>
+<div class="frame">
+  <%= image_tag photo.attachment(:medium), class: "img-thumbnail" %>
+  <p><%= photo.caption %></p>
+  <small><%= photo.user.name %></small>
+  <%= link_to 'Show', photo %>
+  <%= link_to 'Edit', edit_photo_path(photo) %>
+  <%= link_to 'Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' } %>
+</div>
+<% end %>
 
 <br>
 
