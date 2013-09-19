@@ -1,31 +1,17 @@
 <h1>Listing photos</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Caption</th>
-      <th>Private</th>
-      <th>User</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
 
-  <tbody>
     <% @photos.each do |photo| %>
-      <tr>
-        <td><%= photo.caption %></td>
-        <td><%= photo.private %></td>
-        <td><%= photo.user_id %></td>
-        <td><%= link_to 'Show', photo %></td>
-        <td><%= link_to 'Edit', edit_photo_path(photo) %></td>
-        <td><%= link_to 'Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <div class="frame">
+      <%= image_tag photo.attachment(:medium), class: "img-thumbnail" %>
+        <p><%= photo.caption %></p>
+        <small><%= photo.user.name %></small>
+        <%= link_to 'Show', photo %>
+        <%= link_to 'Edit', edit_photo_path(photo) %>
+        <%= link_to 'Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
     <% end %>
-  </tbody>
-</table>
 
 <br>
 
-<%= link_to 'New Photo', new_photo_path %>
+<%= link_to 'New Photo', new_photo_path, class: "btn-new-photo btn btn-default" %>
